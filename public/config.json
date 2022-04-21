@@ -1,0 +1,31 @@
+{
+  "system": {
+    "applicationName": "review",
+    "applicationUrl": ""
+  },
+  "rest": {
+    "apiUrl": "https://services-review-clever-war-imklbu.internal.stageit.app/api/v1",
+    "apiUrlV2": "https://services-review-clever-war-imklbu.internal.stageit.app",
+    "mediaUrl": "https://asset.sandbox.icondo.asia",
+    "mediaUrlV2": "https://asset.sandbox.icondo.asia"
+  },
+  "firebase": {
+    "apiKey": "AIzaSyA0GAnW9Nb_HxxBuD-UMq73t8GmnetQfvY",
+    "authDomain": "icondo-test1.firebaseapp.com",
+    "databaseURL": "https://icondo-test1.firebaseio.com",
+    "projectId": "icondo-test1",
+    "storageBucket": "icondo-test1.appspot.com",
+    "messagingSenderId": "985630138882"
+  },
+  "extraPages": [
+    {
+      "name": "help",
+      "url": "https://www.icondo.app/n4lx2xaahgix",
+      "type": "faqRead",
+      "state": true
+    }
+  ],
+  "eAgmProcessingTimeout": 7000,
+  "cmSubDomain": "leia-review-clever-war-imklbu.internal.stageit.app",
+  "securitySubDomain": "leia-review-clever-war-imklbu.internal.stageit.app"
+}

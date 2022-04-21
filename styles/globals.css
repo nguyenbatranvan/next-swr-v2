@@ -1,16 +1,49 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'M PLUS Rounded 1c';
+    font-weight: 100;
+    font-style: normal;
+    src: url("/fonts/MPLUSRounded1c-Thin.ttf") format("ttf")
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+    font-family: 'M PLUS Rounded 1c';
+    font-weight: 300;
+    font-style: normal;
+    src: url("/fonts/MPLUSRounded1c-Light.ttf") format("ttf")
 }
 
-* {
-  box-sizing: border-box;
+@font-face {
+    font-family: 'M PLUS Rounded 1c';
+    font-weight: 400;
+    font-style: normal;
+    src: url("/fonts/MPLUSRounded1c-Regular.ttf") format("ttf")
+}
+
+@font-face {
+    font-family: 'M PLUS Rounded 1c';
+    font-weight: 500;
+    font-style: normal;
+    src: url("/fonts/MPLUSRounded1c-Medium.ttf") format("ttf")
+}
+
+@font-face {
+    font-family: 'M PLUS Rounded 1c';
+    font-weight: bold;
+    font-style: normal;
+    src: url("/fonts/MPLUSRounded1c-Bold.ttf") format("ttf")
+}
+
+html, body {
+    font-family: 'M PLUS Rounded 1c', sans-serif !important;
+    min-height: 100%;
+    height: 100%;
+    @apply bg-base;
+}
+
+body >div{
+    height: 100%;
 }
