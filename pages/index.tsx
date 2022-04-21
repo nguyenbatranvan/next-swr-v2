@@ -51,7 +51,7 @@ export async function getServerSideProps({query, req}) {
     return {
         props: {
             fallback: {
-                [`https://dummyjson.com/products?limit=${query.limit || 10}&skip=${query.skip | 0}`]: data,
+                [`https://dummyjson.com/products?limit=${query.limit || 10}&skip=${query.skip || 0}`]: data,
                 ['https://dummyjson.com/products/categories']: dataCategory
             },
             url: req?.headers?.host,
