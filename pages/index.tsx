@@ -56,8 +56,8 @@ export async function getServerSideProps({query, req}) {
             },
             url: req?.headers?.host,
             params: {
-                limit: 10,
-                skip: 0
+                limit: query.limit || 10,
+                skip: query.skip || 0
             }
         }
     }
