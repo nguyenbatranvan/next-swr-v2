@@ -1,8 +1,21 @@
-import {useState} from "react";
+import SEO from "@/components/seo";
+import {useRouter} from "next/router";
+import {useMemo, useState} from "react";
 import ProductService from "service/product/product-service";
 
-function ProductComponent({query}){
-    const [params, setParams] = useState(query)
+function ProductComponent({query, host}) {
+    const [params, setParams] = useState(query);
+    const {
+        data: products,
+        error,
+        mutate
+    } = ProductService.getProductService(`https://dummyjson.com/products`, params);
+    const description = useMemo(() => {
+        const nameProducts = products.products.map(item => item.title);
+        return nameProducts.join(',');
+    }, [products])
+    if (!products)
+        return (<div>loading...</div>);
 
     function nextPage() {
         setParams(prevState => ({...prevState, ...{skip: params.skip + 10}}));
@@ -12,14 +25,9 @@ function ProductComponent({query}){
         setParams(prevState => ({...prevState, ...{skip: params.skip - 10}}));
     }
 
-    const {
-        data:products,
-        error,
-        mutate
-    } = ProductService.getProductService(`https://dummyjson.com/products`, params);
-    if (!products)
-        return (<div>loading...</div>);
     return (<>
+        <SEO title={"Products"} description={description} currentURL={host} image={products.products[0].images[0]}
+             siteName={host}/>
         <h1>Products</h1>
         <button onClick={prevPage}>Prev</button>
         <button onClick={nextPage}>Next</button>

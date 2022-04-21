@@ -7,8 +7,6 @@ import {fetcher, middleWareHeaders} from "utils/service-swr-util";
 
 function MyApp({Component, pageProps}) {
     const Layout = Component.Layout || DocLayout;
-    const config: IConfig = pageProps.config;
-    console.log('coinffig: ', config);
     return <SWRConfig value={{
         revalidateOnFocus: false,
         fetcher: fetcher,
@@ -16,17 +14,14 @@ function MyApp({Component, pageProps}) {
         dedupingInterval: 100000,
         errorRetryCount: 1
     }}>
-        {pageProps.config &&
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
-        }
+        <Layout>
+            <Component {...pageProps} />
+        </Layout>
     </SWRConfig>;
 }
 
 MyApp.getInitialProps = async ({ctx}) => {
     let config = {};
-    console.log('ctxx: ',ctx.req.headers.host)
     if (ctx?.req?.headers?.host)
         config = await SsrService.get<IConfig>(ctx?.req?.headers?.host + '/' + 'config.json', true);
     return {

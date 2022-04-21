@@ -3,7 +3,7 @@ class SsrService {
         let url = path;
         if (isNeedProtocol) {
             const env = process.env.NODE_ENV;
-            const protocol = env == 'production' ? 'http://' : 'http://';
+            const protocol = env == 'production' ? 'https://' : 'http://';
             url = protocol + url;
         }
         console.log('url: ',url)
