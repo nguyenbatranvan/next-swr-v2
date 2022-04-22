@@ -37,15 +37,15 @@ function Home({fallback, params, url}) {
 }
 
 export async function getServerSideProps({query, req}) {
-    // const auth = !!req.headers.cookie;
-    // if (!auth) {
-    //     return {
-    //         redirect: {
-    //             destination: "/login",
-    //             permanent: false,
-    //         },
-    //     };
-    // }
+    const auth = !!req.headers.cookie;
+    if (!auth) {
+        return {
+            redirect: {
+                destination: "/login",
+                permanent: false,
+            },
+        };
+    }
     const data = await SsrService.get<IResponseProduct>(`https://dummyjson.com/products?limit=${query.limit || 10}&skip=${query.skip || 0}`);
     const dataCategory = await SsrService.get(`https://dummyjson.com/products/categories`);
     return {
