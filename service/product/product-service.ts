@@ -6,8 +6,8 @@ class ProductService extends BaseService<IParamsProduct, IResponseProduct> {
         return this.get(url, params, showLoading, header);
     }
 
-    addProductService(url, params, showLoading: boolean = true, header = {}) {
-        return this.post(url, params, showLoading, header);
+    addProductService(url, showLoading: boolean = true, header = {}) {
+        return this.post(url, showLoading, header);
     }
 
     getCategoryProductService(url, params, showLoading: boolean = true, header = {}) {
